@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -239,6 +239,10 @@ MonoBehaviour:
   foodCount: 0
   footstepsEffect: {fileID: 1190350955}
   impactEffect: {fileID: 1035247853}
+  dashSpeed: 180
+  dashTime: 0
+  startDashTime: 1.5
+  isDashing: 0
 --- !u!1001 &376465232
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1163,7 +1167,12 @@ PrefabInstance:
     - target: {fileID: 8769076911917707095, guid: 82b9291326e7f904683157c7214c4316,
         type: 3}
       propertyPath: m_SleepingMode
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769076911917707095, guid: 82b9291326e7f904683157c7214c4316,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1188305080040839438, guid: 82b9291326e7f904683157c7214c4316, type: 3}
@@ -1369,6 +1378,11 @@ PrefabInstance:
         type: 3}
       propertyPath: distance
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282825073210914633, guid: 9daf2552503616449b0a06813689aa12,
+        type: 3}
+      propertyPath: rotationSpeed
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9daf2552503616449b0a06813689aa12, type: 3}

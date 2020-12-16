@@ -13,10 +13,16 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem footstepsEffect, impactEffect;
     public ParticleSystem.EmissionModule footEmission;
 
+    public float dashSpeed;
+    public float dashTime;
+    public float startDashTime;
+    public bool isDashing;
+
 
     private void Start()
     {
         footEmission = footstepsEffect.emission;
+        dashTime = startDashTime;
     }
 
 
@@ -33,12 +39,31 @@ public class PlayerController : MonoBehaviour
         {
             footEmission.rateOverTime = 0f;
         }
+
+
+        if (dashTime <= 0f)
+        {
+            isDashing = false;
+            dashTime = startDashTime;
+        }
+        else
+        {
+            dashTime -= Time.deltaTime;
+        }
+
+
     }
 
         private void FixedUpdate()
     {
         Move();
         
+        if (Input.GetKey(KeyCode.Space) && !isDashing)
+            
+        {
+            isDashing = true;
+            rb.velocity = new Vector2(moveDirection.x * dashSpeed, moveDirection.y * dashSpeed);
+        }
         
     }
 
